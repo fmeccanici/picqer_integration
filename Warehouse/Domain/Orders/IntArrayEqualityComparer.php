@@ -1,0 +1,30 @@
+<?php
+
+
+namespace App\Warehouse\Domain\Orders;
+
+
+final class IntArrayEqualityComparer
+{
+    public static function equals(array $lhs, array $rhs): bool
+    {
+        $sizeLhs = count($lhs);
+        $sizeRhs = count($rhs);
+
+        if ($sizeLhs !== $sizeRhs)
+        {
+            return false;
+        }
+        else
+        {
+            for ($i = 0; $i < $sizeLhs; $i++)
+            {
+                if ($lhs[$i] !== $rhs[$i]) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+}
